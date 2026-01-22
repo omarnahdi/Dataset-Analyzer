@@ -26,7 +26,7 @@ fn main() {
         "csv" => csv_analyze(file_name),
         _ => {
             println!("Command not found");
-            println!("Avaliable commands: analyze",)
+            println!("Avaliable commands: analyze, csv",)
         }
     }
 }
