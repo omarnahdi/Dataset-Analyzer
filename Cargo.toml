@@ -1,0 +1,20 @@
+[package]
+name = "dataset_analyzer"
+version = "0.1.0"
+edition = "2024"
+default-run = "dataset_analyzer"
+[dependencies]
+csv = "1.4.0"
+
+
+[[bin]]
+name = "file_analyzer"
+path = "src/file_analyzer.rs"
+
+[[bin]]
+name = "csv_analyzer"
+path = "src/csv_analyzer.rs"
+
+[[bin]]
+name = "boilerplate"
+path = "src/boilerplate.rs"

@@ -1,0 +1,29 @@
+File: CVD Dataset.csv
+
+Column                              | Missing | Type
+----------------------------------------------------------
+Sex                                 |       0 | categorical
+Age                                 |      78 | numeric
+Weight (kg)                         |      81 | numeric
+Height (m)                          |      67 | numeric
+BMI                                 |      64 | numeric
+Abdominal Circumference (cm)        |      67 | numeric
+Blood Pressure (mmHg)               |       0 | categorical
+Total Cholesterol (mg/dL)           |      73 | numeric
+HDL (mg/dL)                         |      80 | numeric
+Fasting Blood Sugar (mg/dL)         |      67 | numeric
+Smoking Status                      |       0 | categorical
+Diabetes Status                     |       0 | categorical
+Physical Activity Level             |       0 | categorical
+Family History of CVD               |       0 | categorical
+Height (cm)                         |      74 | numeric
+Waist-to-Height Ratio               |      79 | numeric
+Systolic BP                         |      71 | numeric
+Diastolic BP                        |      82 | numeric
+Blood Pressure Category             |       0 | categorical
+Estimated LDL (mg/dL)               |      69 | numeric
+CVD Risk Score                      |      70 | numeric
+CVD Risk Level                      |       0 | categorical
+
+Total rows: 1529
+Columns: 22
