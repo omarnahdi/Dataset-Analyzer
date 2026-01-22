@@ -1,7 +1,6 @@
 use std::env::args;
 mod csv_analyzer;
 mod file_analyzer;
-use csv::Reader;
 use csv_analyzer::csv_analyze;
 use file_analyzer::analyze;
 fn main() {
@@ -26,7 +25,7 @@ fn main() {
         "csv" => csv_analyze(file_name),
         _ => {
             println!("Command not found");
-            println!("Avaliable commands: analyze, csv",)
+            println!("Available commands: analyze, csv",)
         }
     }
 }
