@@ -25,7 +25,7 @@ dependencies = [
 
 [[package]]
 name = "dataset_analyzer"
-version = "0.1.0"
+version = "1.1.0"
 dependencies = [
  "csv",
 ]
