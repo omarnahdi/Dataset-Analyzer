@@ -1,6 +1,6 @@
 # Dataset Analyzer (Rust)
 
-A fast, safe, and extensible **dataset analysis CLI tool written in Rust**.  
+RustSight is a fast, safe, and extensible **dataset analysis CLI tool written in Rust**.  
 This project focuses on **data validation and exploratory analysis** — the exact step that comes *before* AI/ML model training.
 
 It works on **any CSV file** and can also analyze **binary or text files** to extract useful properties.
@@ -141,3 +141,4 @@ Contributions are welcome!
 Feel free to open issues or submit pull requests.
 
 Portfolio: https://omarnahdi.dev
+RustSight: https://omarnahdi.dev/work/dataset-analyzer
