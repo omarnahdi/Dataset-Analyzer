@@ -114,9 +114,9 @@ pub fn csv_analyze(f: &str, report_gen: Option<i32>) -> CsvAnalysis {
     //     }
     // }
 
-    for (i, stats_opt) in stats_col.iter().enumerate() {
+    for (_i, stats_opt) in stats_col.iter().enumerate() {
         if let Some(stats) = stats_opt {
-            let mean = stats.sum / stats.count as f64;
+            let _mean = stats.sum / stats.count as f64;
 
             // println!("Column Statistics {}:", &header[i]);
             // println!("min: {}", stats.min);

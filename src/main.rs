@@ -5,7 +5,6 @@ mod file_analyzer;
 use csv_analyzer::csv_analyze;
 use file_analyzer::analyze;
 use csv_analyzer::data_validation;
-use crate::csv_analyzer::CsvAnalysis;
 
 fn main() {
     let args: Vec<String> = args().collect();
@@ -29,7 +28,7 @@ fn main() {
             }
         }
         "csv" => {
-            let csv = csv_analyze(file_name, Some(1));
+            let _csv = csv_analyze(file_name, Some(1));
         }
         "validate" => {
             d_v();
