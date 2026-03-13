@@ -3,6 +3,10 @@
 All notable changes to this project are documented here.
 
 ---
+## [v1.1.1] - Minor Changes before publishing
+
+### Fixed
+- Fixed minor changes before publishing.
 
 ## [v1.0.0] – Data Validation Release
 

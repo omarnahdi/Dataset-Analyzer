@@ -11,7 +11,8 @@ fn main() {
     let args: Vec<String> = args().collect();
 
     if args.len() < 3 {
-        println!("Usage: cargo run -- analyze filename");
+        println!("Usage: rustsight csv filename");
+        println!("Available commands: analyze, csv, validate",);
         return;
     }
 
@@ -35,7 +36,8 @@ fn main() {
         }
         _ => {
             println!("Command not found");
-            println!("Available commands: analyze, csv, validate",)
+            println!("Available commands: analyze, csv, validate",);
+            println!("Example: rustsight csv filename");
         }
     }
 }

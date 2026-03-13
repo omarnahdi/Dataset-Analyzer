@@ -24,13 +24,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "dataset_analyzer"
-version = "1.1.0"
-dependencies = [
- "csv",
-]
-
-[[package]]
 name = "itoa"
 version = "1.0.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -58,6 +51,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dc74d9a594b72ae6656596548f56f667211f8a97b3d4c3d467150794690dc40a"
 dependencies = [
  "proc-macro2",
+]
+
+[[package]]
+name = "rustsight"
+version = "1.1.1"
+dependencies = [
+ "csv",
 ]
 
 [[package]]
