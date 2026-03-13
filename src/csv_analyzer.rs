@@ -6,7 +6,7 @@ use std::fs;
 use csv::Reader;
 
 struct ColumnProfiler {
-    name: String,
+
     numeric_count: usize,
     missing_count: usize,
 }
@@ -50,8 +50,8 @@ pub fn csv_analyze(f: &str, report_gen: Option<i32>) -> CsvAnalysis {
 
     let mut column: Vec<ColumnProfiler> = header
         .iter()
-        .map(|h| ColumnProfiler {
-            name: h.to_string(),
+        .map(|_h| ColumnProfiler {
+
             numeric_count: 0,
             missing_count: 0,
         })
@@ -248,6 +248,6 @@ pub fn data_validation (analysis: &CsvAnalysis) {
         println!("Data is clean you are good to go!\n");
     }
 }
-    fn main() {
-    csv_analyze("CVD Dataset.csv", Some(1));
-}
+//     fn main() {
+//     csv_analyze("CVD Dataset.csv", Some(1));
+// }

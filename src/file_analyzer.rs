@@ -79,7 +79,7 @@ pub fn analyze(file_name: &str) -> Result<FileData, Error> {
     Ok(fd)
 }
 
-fn main() {
-    // let p
-    let _ = analyze("data.txt").expect("An error occurred");
-}
+// fn main() {
+//     // let p
+//     let _ = analyze("data.txt").expect("An error occurred");
+// }
