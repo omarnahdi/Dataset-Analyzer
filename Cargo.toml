@@ -9,7 +9,7 @@ homepage = "https://omarnahdi.dev/work/dataset-analyzer"
 readme = "README.md"
 keywords = ["csv", "dataset", "analysis", "validation", "cli"]
 categories = ["command-line-utilities", "parser-implementations"]
-exclude = ["*.csv", "*.txt", ".idea/", "src/boilerplate.rs", "src/file_analyzer.rs", "src/csv_analyzer.rs"]
+exclude = ["*.csv", "*.txt", ".idea/", "src/boilerplate.rs"]
 
 [dependencies]
 csv = "1.4.0"
