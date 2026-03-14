@@ -5,6 +5,9 @@ This project focuses on **data validation and exploratory analysis** — the exa
 
 It works on **any CSV file** and can also analyze **binary or text files** to extract useful properties.
 
+[![Crates.io](https://img.shields.io/crates/v/rustsight)](https://crates.io/crates/rustsight)
+[![Downloads](https://img.shields.io/crates/d/rustsight)](https://crates.io/crates/rustsight)
+
 ---
 
 ## ✨ Features
@@ -40,7 +43,7 @@ Used during development (not required):
 - `CVD Dataset.csv` — cardiovascular health dataset
 
 > ⚠ Large datasets are **not bundled**.  
-You can analyze **any CSV file**.
+> You can analyze **any CSV file**.
 
 ---
 
@@ -59,7 +62,6 @@ This will:
 ---
 
 ### 2️⃣ Validate a dataset (NEW)
-
 ```bash
 cargo run -- validate insta_data.csv
 ```
@@ -76,7 +78,6 @@ This helps detect **data quality issues before ML training**.
 ---
 
 ### 3️⃣ Analyze any file (text or binary)
-
 ```bash
 cargo run -- analyze stockdata.csv
 cargo run -- analyze target\debug\dataset_analyzer.exe
@@ -90,12 +91,19 @@ This detects:
 
 ---
 
-## 📦 Installation (From Source)
+## 📦 Installation
 
+### From crates.io (Recommended)
+```bash
+cargo install rustsight
+```
+
+👉 [crates.io/crates/rustsight](https://crates.io/crates/rustsight)
+
+### From Source
 ```bash
 git clone https://github.com/omarnahdi/Dataset-Analyzer.git
 cd dataset-analyzer
-
 cargo build --release
 ```
 
@@ -106,12 +114,11 @@ Run using:
 
 ---
 
-## 🪟 Using the Windows `.exe` (Recommended)
+## 🪟 Using the Windows `.exe`
 
 1. Go to the **Releases** section on GitHub
 2. Download: `dataset_analyzer.exe`
 3. Run from terminal:
-
 ```bash
 dataset_analyzer.exe csv your_file.csv
 dataset_analyzer.exe validate your_file.csv
@@ -140,5 +147,6 @@ MIT License
 Contributions are welcome!  
 Feel free to open issues or submit pull requests.
 
-Portfolio: https://omarnahdi.dev
-RustSight: https://omarnahdi.dev/work/dataset-analyzer
+Portfolio: https://omarnahdi.dev  
+RustSight: https://omarnahdi.dev/work/dataset-analyzer  
+crates.io: https://crates.io/crates/rustsight
