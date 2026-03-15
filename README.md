@@ -60,7 +60,7 @@ cargo build --release
 
 ### Analyze a CSV dataset
 ```bash
-rustsight csv your_dataset.csv
+rustsight stats your_dataset.csv
 ```
 
 ### Validate a dataset
@@ -76,7 +76,7 @@ File: insta_data.csv
 
 ### Analyze any file (text or binary)
 ```bash
-rustsight analyze your_file.txt
+rustsight inspect your_file.txt
 ```
 
 ### Help & Version
