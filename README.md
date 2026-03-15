@@ -2,7 +2,6 @@
 
 RustSight is a fast, safe, and extensible **dataset analysis CLI tool written in Rust**.  
 This project focuses on **data validation and exploratory analysis** — the exact step that comes *before* AI/ML model training.
-
 It works on **any CSV file** and can also analyze **binary or text files** to extract useful properties.
 
 [![Crates.io](https://img.shields.io/crates/v/rustsight)](https://crates.io/crates/rustsight)
@@ -26,7 +25,7 @@ cargo install rustsight
 git clone https://github.com/omarnahdi/Dataset-Analyzer.git
 cd dataset-analyzer
 cargo build --release
-./target/release/rustsight csv your_file.csv
+./target/release/rustsight stats your_file.csv
 ```
 
 ---
@@ -59,31 +58,56 @@ cargo build --release
 ## 🚀 Usage
 
 ### Analyze a CSV dataset
+
 ```bash
 rustsight stats your_dataset.csv
 ```
 
 ### Validate a dataset
+
 ```bash
 rustsight validate your_dataset.csv
 ```
+
 Example output:
+
 ```
 File: insta_data.csv
 ⚠ Column 'followers_count' may contain outliers
 ⚠ Column 'user_engagement_score' may contain outliers
 ```
 
-### Analyze any file (text or binary)
+### Inspect any file (text or binary)
+
 ```bash
 rustsight inspect your_file.txt
 ```
 
 ### Help & Version
+
 ```bash
 rustsight help
 rustsight version
 ```
+
+---
+
+## ⚡ Benchmark
+
+Tested on **chicago crimes.csv** — 8,500,901 rows, 22 columns.
+
+| Tool | Time | vs Pandas |
+|------|------|-----------|
+| 🐻‍❄️ Polars (Python) | 1.42s | 22.2× faster |
+| 🦆 DuckDB CLI | 4.33s | 7.3× faster |
+| 🦀 **RustSight** | **5.57s** | **5.7× faster** |
+| 🐼 Pandas (Python) | 31.53s | baseline |
+| ❌ csvkit | DNF | unusably slow |
+
+> Benchmarked on Windows, release build (`cargo build --release`), 20 threads.  
+> RustSight outperforms Pandas by **5.7×** and runs within 1.3 seconds of DuckDB — a production C++ query engine.
+
+Dataset source: [Chicago Crime Dataset 2024–2026](https://www.kaggle.com/datasets/aliafzal9323/chicago-crime-dataset-2024-2026) via Kaggle.
 
 ---
 
@@ -101,7 +125,7 @@ Used during development (not required):
 ## 🪟 Windows `.exe`
 
 1. Go to the **Releases** section on GitHub
-2. Download `dataset_analyzer.exe`
+2. Download `rustsight.exe`
 3. Run from terminal:
 
 ```bash
