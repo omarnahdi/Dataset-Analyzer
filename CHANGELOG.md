@@ -4,6 +4,21 @@ All notable changes to this project are documented here.
 
 ---
 
+## [v1.2.1] – Metadata & Documentation Update
+
+### Added
+- `documentation` link in `Cargo.toml` pointing to docs.rs
+- Improved `keywords` in `Cargo.toml` to improve discoverability on crates.io
+
+### Changed
+- Project version bumped to **v1.2.1**
+
+### Notes
+- No functionality changes
+- No user action required
+
+---
+
 ## [v1.2.0] – Report Formatting, Execution Timing & Command Renames
 
 ### ⚠️ Breaking Changes
