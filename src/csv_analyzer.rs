@@ -234,7 +234,7 @@ pub fn data_validation (analysis: &CsvAnalysis) {
         if missing_ratio > 0.01 {
             warnings += 1;
             println!(
-                "⚠ Column '{}' has {:.1}% missing values ({} rows)",
+                "⚠  Column '{}' has {:.1}% missing values ({} rows)",
                 &analysis.header[i],
                 missing_ratio * 100.0,
                 col.missing_count
