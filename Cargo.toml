@@ -1,6 +1,6 @@
 [package]
 name = "rustsight"
-version = "1.1.2"
+version = "1.2.0"
 edition = "2024"
 description = "A fast, safe CLI tool for dataset analysis and validation. Analyzes CSV files for column types, missing values, basic statistics (min/max/mean), outliers, no-variance columns, and mixed-type columns — helping you catch data quality issues before ML/AI training. Also supports binary and text file introspection."
 license = "MIT"

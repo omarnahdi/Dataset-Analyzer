@@ -1,4 +1,5 @@
 use std::env::args;
+use std::time::Instant;
 mod csv_analyzer;
 mod file_analyzer;
 
@@ -20,9 +21,9 @@ fn main() {
         println!("USAGE:");
         println!("  rustsight <COMMAND> <FILE>\n");
         println!("COMMANDS:");
-        println!("  csv <file>       Analyze a CSV file — column types, missing values, min/max/mean");
+        println!("  stats <file>     Analyze a CSV file — column types, missing values, min/max/mean");
         println!("  validate <file>  Validate a CSV file for data quality issues before ML/AI training");
-        println!("  analyze <file>   Inspect any file — bytes, UTF-8 validity, line & word counts");
+        println!("  inspect <file>   Inspect any file — bytes, UTF-8 validity, line & word counts");
         println!("  version          Print the current version");
         println!("  help             Show this help message\n");
         println!("EXAMPLES:");
@@ -30,6 +31,7 @@ fn main() {
         println!("  rustsight validate dataset.csv");
         println!("  rustsight analyze report.txt\n");
         println!("More info: https://github.com/omarnahdi/Dataset-Analyzer");
+        println!("Learn more: https://omarnahdi.dev/writing/rustsight-cli-csv-analyzer");
         return;
     }
 
@@ -45,21 +47,37 @@ fn main() {
         let d = csv_analyze(file_name, Some(0));
         data_validation(&d);
     };
+
     match command.as_str() {
-        "analyze" => {
+        "inspect" => {
+            let start = Instant::now();
             if let Err(e) = analyze(file_name) {
                 eprintln!("Error: {}", e);
+            } else {
+                print_elapsed(start.elapsed());
             }
         }
-        "csv" => {
+        "stats" => {
+            let start = Instant::now();
             let _csv = csv_analyze(file_name, Some(1));
+            print_elapsed(start.elapsed());
         }
         "validate" => {
+            let start = Instant::now();
             d_v();
+            print_elapsed(start.elapsed());
         }
         _ => {
             println!("Command '{}' not found.", &args[1]);
             println!("Run 'rustsight help' for available commands.");
         }
+    }
+}
+
+fn print_elapsed(elapsed: std::time::Duration) {
+    if elapsed.as_secs() > 0 {
+        println!("\n🕛  Analysis completed in {:.2}s", elapsed.as_secs_f64());
+    } else {
+        println!("\n🕛  Analysis completed in {}ms", elapsed.as_millis());
     }
 }

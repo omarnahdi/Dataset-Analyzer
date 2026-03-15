@@ -129,11 +129,16 @@ pub fn csv_analyze(f: &str, report_gen: Option<i32>) -> CsvAnalysis {
         let mut report = String::new();
 
         report.push_str(&format!("File: {}\n\n", file_name));
+
+        // 🛠️ FIX 1: Format the header dynamically using the exact same widths as the data rows
+        report.push_str(&format!(
+            "{:<30} | {:>7} | {:<11} | {:>14} | {:>14} | {:>14}\n",
+            "Column", "Missing", "Type", "Min", "Max", "Mean"
+        ));
+
+        // 🛠️ FIX 2: Extend the separator line to match the new total width (105 characters)
         report.push_str(
-            "Column                          | Missing | Type        | Min     | Max     | Mean\n"
-        );
-        report.push_str(
-            "------------------------------------------------------------------------------------\n"
+            "---------------------------------------------------------------------------------------------------------\n"
         );
 
         for i in 0..header_length {
@@ -149,8 +154,9 @@ pub fn csv_analyze(f: &str, report_gen: Option<i32>) -> CsvAnalysis {
                 Some(stats) => {
                     let mean = stats.sum / stats.count as f64;
 
+                    // 🛠️ FIX 3: Increased width from 7.2 to 14.2
                     report.push_str(&format!(
-                        "{:<30} | {:>7} | {:<11} | {:>7.2} | {:>7.2} | {:>7.2}\n",
+                        "{:<30} | {:>7} | {:<11} | {:>14.2} | {:>14.2} | {:>14.2}\n",
                         &header[i],
                         col.missing_count,
                         col_type,
@@ -160,8 +166,9 @@ pub fn csv_analyze(f: &str, report_gen: Option<i32>) -> CsvAnalysis {
                     ));
                 }
                 None => {
+                    // 🛠️ FIX 4: Increased width from 7 to 14 for the "N/A" rows
                     report.push_str(&format!(
-                        "{:<30} | {:>7} | {:<11} | {:>7} | {:>7} | {:>7}\n",
+                        "{:<30} | {:>7} | {:<11} | {:>14} | {:>14} | {:>14}\n",
                         &header[i],
                         col.missing_count,
                         col_type,
@@ -206,9 +213,10 @@ pub fn data_validation (analysis: &CsvAnalysis) {
         if missing_ratio > 0.01 {
             warnings += 1;
             println!(
-                "⚠ Column '{}' has {:.1}% missing values",
+                "⚠ Column '{}' has {:.1}% missing values ({} rows)",
                 &analysis.header[i],
-                missing_ratio * 100.0
+                missing_ratio * 100.0,
+                col.missing_count
             );
         }
 

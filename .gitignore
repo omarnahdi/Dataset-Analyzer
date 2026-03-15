@@ -2,6 +2,8 @@
 stockdata_report.txt
 CVD Dataset_report.txt
 insta_data.csv
+*.csv
 *.txt
 test.csv
 .env
+duckdb.exe

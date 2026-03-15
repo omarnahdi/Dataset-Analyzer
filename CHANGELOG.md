@@ -4,6 +4,22 @@ All notable changes to this project are documented here.
 
 ---
 
+## [v1.2.0] – Report Formatting, Execution Timing & Command Renames
+
+### ⚠️ Breaking Changes
+- `csv` command renamed to `stats` — update any scripts or workflows using `rustsight csv`
+- `analyze` command renamed to `inspect` — update any scripts or workflows using `rustsight analyze`
+
+### Added
+- Execution timer for all commands — displays milliseconds for fast runs, seconds for slower ones
+
+### Fixed
+- Report generation column widths increased from 7 to 14 characters — large numbers like `14,118,918` and `1,885,922.46` no longer break table alignment
+- Report header row now uses the same dynamic widths as data rows for consistent formatting
+- Separator line extended to match new total table width
+
+---
+
 ## [v1.1.2] – CLI Polish & Developer Experience
 
 ### Added
@@ -17,10 +33,12 @@ All notable changes to this project are documented here.
 
 ---
 
-## [v1.1.1] - Minor Changes before publishing
+## [v1.1.1] – Minor Changes Before Publishing
 
 ### Fixed
-- Fixed minor changes before publishing.
+- Fixed minor changes before publishing
+
+---
 
 ## [v1.0.0] – Data Validation Release
 
