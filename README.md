@@ -105,7 +105,7 @@ Used during development (not required):
 3. Run from terminal:
 
 ```bash
-rustsight csv your_file.csv
+rustsight stats your_file.csv
 rustsight validate your_file.csv
 ```
 
