@@ -125,21 +125,25 @@ pub fn csv_analyze(f: &str, report_gen: Option<i32>) -> CsvAnalysis {
             // println!("")
         }
     }
-    if report_gen == Option::from(1) {
-        let mut report = String::new();
 
-        report.push_str(&format!("File: {}\n\n", file_name));
+    if report_gen == Option::from(1) {
+        println!(
+            "{:<30} | {:>7} | {:<11} | {:>14} | {:>14} | {:>14}",
+            "Column","Missing","Type","Min","Max","Mean"
+        );
+
+        println!("{}", "-".repeat(105));
+        let mut report = String::new();
+        report.push_str(&format!("# RustSight Data Analysis Report\n"));
+        report.push_str(&format!("**Dataset:**  `{}`\n\n", file_name));
 
         // 🛠️ FIX 1: Format the header dynamically using the exact same widths as the data rows
-        report.push_str(&format!(
-            "{:<30} | {:>7} | {:<11} | {:>14} | {:>14} | {:>14}\n",
-            "Column", "Missing", "Type", "Min", "Max", "Mean"
-        ));
-
+        report.push_str("| Column | Missing | Type | Min | Max | Mean |\n");
+        report.push_str("|--------|--------|------|-----|-----|------|\n");
         // 🛠️ FIX 2: Extend the separator line to match the new total width (105 characters)
-        report.push_str(
-            "---------------------------------------------------------------------------------------------------------\n"
-        );
+        // report.push_str(
+        //     "---------------------------------------------------------------------------------------------------------\n"
+        // );
 
         for i in 0..header_length {
             let col = &column[i];
@@ -154,9 +158,18 @@ pub fn csv_analyze(f: &str, report_gen: Option<i32>) -> CsvAnalysis {
                 Some(stats) => {
                     let mean = stats.sum / stats.count as f64;
 
-                    // 🛠️ FIX 3: Increased width from 7.2 to 14.2
+                    println!(
+                        "{:<30} | {:>7} | {:<11} | {:>14.2} | {:>14.2} | {:>14.2}",
+                        &header[i],
+                        col.missing_count,
+                        col_type,
+                        stats.min,
+                        stats.max,
+                        mean
+                    );
+
                     report.push_str(&format!(
-                        "{:<30} | {:>7} | {:<11} | {:>14.2} | {:>14.2} | {:>14.2}\n",
+                        "| {} | {} | {} | {:.2} | {:.2} | {:.2} |\n",
                         &header[i],
                         col.missing_count,
                         col_type,
@@ -166,32 +179,40 @@ pub fn csv_analyze(f: &str, report_gen: Option<i32>) -> CsvAnalysis {
                     ));
                 }
                 None => {
-                    // 🛠️ FIX 4: Increased width from 7 to 14 for the "N/A" rows
-                    report.push_str(&format!(
-                        "{:<30} | {:>7} | {:<11} | {:>14} | {:>14} | {:>14}\n",
+                    println!(
+                        "{:<30} | {:>7} | {:<11} | {:>14} | {:>14} | {:>14}",
                         &header[i],
                         col.missing_count,
                         col_type,
                         "N/A",
                         "N/A",
                         "N/A"
+                    );
+
+                    report.push_str(&format!(
+                        "| {} | {} | {} | N/A | N/A | N/A |\n",
+                        &header[i],
+                        col.missing_count,
+                        col_type
                     ));
                 }
             }
         }
 
-        report.push_str(&format!("\nTotal rows: {}\n", total_rows));
-        report.push_str(&format!("Columns: {}\n", header_length));
-
+        report.push_str(&format!("\n**Total rows:** {}   ", total_rows));
+        report.push_str(&format!("\n**Columns:** {}\n", header_length));
         use std::path::{Path, PathBuf};
         let input_path = Path::new(file_name);
         // 1️⃣ Get file name without extension
         let stem = input_path.file_stem().expect("Invalid file name").to_string_lossy();
         // 2️⃣ Build new file name with _report
-        let output_file: PathBuf = input_path.with_file_name(format!("{}_report.txt", stem));
+        let output_file: PathBuf = input_path.with_file_name(format!("{}_report.md", stem));
         // 3️⃣ Write report
-        fs::write(&output_file, report).expect("Error writing report");
-        println!("Saved report to {:?}", output_file);
+        fs::write(&output_file, &report).expect("Error writing report");
+
+        // println!("{}", report);
+
+        println!("\n✔ Report saved → {}", output_file.display());
     }
     CsvAnalysis {
         header: header,
@@ -226,7 +247,7 @@ pub fn data_validation (analysis: &CsvAnalysis) {
             if (stats.max - stats.min) == 0.0 && stats.count > 1 {
                 warnings += 1;
                 println!(
-                    "⚠ Column '{}' has no variance",
+                    "⚠  Column '{}' has no variance",
                     &analysis.header[i]
                 );
             }
@@ -234,7 +255,7 @@ pub fn data_validation (analysis: &CsvAnalysis) {
             if stats.max > mean * 10.0 {
                 warnings += 1;
                 println!(
-                    "⚠ Column '{}' may contain outliers",
+                    "⚠  Column '{}' may contain outliers",
                     &analysis.header[i]
                 );
             }
@@ -246,7 +267,7 @@ pub fn data_validation (analysis: &CsvAnalysis) {
         if numeric_ratio > 0.2 && numeric_ratio < 0.8 {
             warnings += 1;
             println!(
-                "⚠ Column '{}' has mixed data types",
+                "⚠  Column '{}' has mixed data types",
                 &analysis.header[i]
             );
         }

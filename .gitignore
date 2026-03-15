@@ -7,3 +7,5 @@ insta_data.csv
 test.csv
 .env
 duckdb.exe
+chicago crimes_report.md
+stockdata_report.md
