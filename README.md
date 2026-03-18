@@ -100,7 +100,7 @@ Tested on **chicago crimes.csv** — 8,500,901 rows, 22 columns.
 |------|------|-----------|
 | 🐻‍❄️ Polars (Python) | 1.42s | 22.2× faster |
 | 🦆 DuckDB CLI | 4.33s | 7.3× faster |
-| 🦀 **RustSight** | **5.57s** | **5.7× faster** |
+| 🦀 **RustSight** | **5.21s** | **6.1× faster** |
 | 🐼 Pandas (Python) | 31.53s | baseline |
 | ❌ csvkit | DNF | unusably slow |
 
