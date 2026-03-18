@@ -137,10 +137,10 @@ pub fn csv_analyze(f: &str, report_gen: Option<i32>) -> CsvAnalysis {
         report.push_str(&format!("# RustSight Data Analysis Report\n"));
         report.push_str(&format!("**Dataset:**  `{}`\n\n", file_name));
 
-        // 🛠️ FIX 1: Format the header dynamically using the exact same widths as the data rows
+
         report.push_str("| Column | Missing | Type | Min | Max | Mean |\n");
         report.push_str("|--------|--------|------|-----|-----|------|\n");
-        // 🛠️ FIX 2: Extend the separator line to match the new total width (105 characters)
+
         // report.push_str(
         //     "---------------------------------------------------------------------------------------------------------\n"
         // );
@@ -203,11 +203,11 @@ pub fn csv_analyze(f: &str, report_gen: Option<i32>) -> CsvAnalysis {
         report.push_str(&format!("\n**Columns:** {}\n", header_length));
         use std::path::{Path, PathBuf};
         let input_path = Path::new(file_name);
-        // 1️⃣ Get file name without extension
+
         let stem = input_path.file_stem().expect("Invalid file name").to_string_lossy();
-        // 2️⃣ Build new file name with _report
+
         let output_file: PathBuf = input_path.with_file_name(format!("{}_report.md", stem));
-        // 3️⃣ Write report
+
         fs::write(&output_file, &report).expect("Error writing report");
 
         // println!("{}", report);
