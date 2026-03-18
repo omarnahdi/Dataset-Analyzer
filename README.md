@@ -105,7 +105,7 @@ Tested on **chicago crimes.csv** — 8,500,901 rows, 22 columns.
 | ❌ csvkit | DNF | unusably slow |
 
 > Benchmarked on Windows, release build (`cargo build --release`), 20 threads.  
-> RustSight outperforms Pandas by **5.7×** and runs within 1.3 seconds of DuckDB — a production C++ query engine.
+> RustSight outperforms Pandas by **6.1×** and runs within 1.3 seconds of DuckDB — a production C++ query engine.
 
 Dataset source: [Chicago Crime Dataset 2024–2026](https://www.kaggle.com/datasets/aliafzal9323/chicago-crime-dataset-2024-2026) via Kaggle.
 
