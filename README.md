@@ -166,7 +166,7 @@ MIT License
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
 Portfolio: https://omarnahdi.dev  
-RustSight: https://omarnahdi.dev/work/dataset-analyzer  
+RustSight: https://rustsight.omarnahdi.dev/
 crates.io: https://crates.io/crates/rustsight  
 Learn more: https://omarnahdi.dev/writing/rustsight-cli-csv-analyzer
 ```
