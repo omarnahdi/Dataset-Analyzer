@@ -8,17 +8,6 @@ It works on **any CSV file** and can also analyze **binary or text files** to ex
 [![Crates.io](https://img.shields.io/crates/v/rustsight)](https://crates.io/crates/rustsight)
 [![Downloads](https://img.shields.io/crates/d/rustsight)](https://crates.io/crates/rustsight)
 
-<br>
-<a href="https://peerlist.io/omarnahdi/project/rustsight-platform" target="_blank" rel="noreferrer">
-				<img
-					src="https://peerlist.io/api/v1/projects/embed/PRJH7B8M9RRQNDP8D39MBMJ869PBMQ?showUpvote=true&theme=dark"
-					alt="RustSight Platform"
-					style="width: auto; height: 72px;"
-				/>
-			</a>
-
----
-
 ## 📦 Installation
 
 ### From crates.io (Recommended)
@@ -168,5 +157,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 Portfolio: https://omarnahdi.dev  
 RustSight: https://rustsight.omarnahdi.dev/
 crates.io: https://crates.io/crates/rustsight  
-Learn more: https://omarnahdi.dev/writing/rustsight-cli-csv-analyzer
 ```
