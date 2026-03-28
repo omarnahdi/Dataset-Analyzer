@@ -7,6 +7,7 @@ It works on **any CSV file** and can also analyze **binary or text files** to ex
 
 [![Crates.io](https://img.shields.io/crates/v/rustsight)](https://crates.io/crates/rustsight)
 [![Downloads](https://img.shields.io/crates/d/rustsight)](https://crates.io/crates/rustsight)
+[![gitcgr](https://gitcgr.com/badge/omarnahdi/Dataset-Analyzer.svg)](https://gitcgr.com/omarnahdi/Dataset-Analyzer)
 
 ## 📦 Installation
 
