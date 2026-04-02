@@ -5,6 +5,10 @@ RustSight is a fast, safe, and extensible **dataset analysis CLI tool written in
 This project focuses on **data validation and exploratory analysis** — the exact step that comes *before* AI/ML model training.
 It works on **any CSV file** and can also analyze **binary or text files** to extract useful properties.
 
+
+[![Official Website & Docs](https://img.shields.io/badge/Official_Website-rustsight.omarnahdi.dev-rust?style=for-the-badge)](https://rustsight.omarnahdi.dev)
+
+*Read the official interactive documentation, watch video demos, and view detailed benchmarks at [rustsight.omarnahdi.dev](https://rustsight.omarnahdi.dev).*
 [![Crates.io](https://img.shields.io/crates/v/rustsight)](https://crates.io/crates/rustsight)
 [![Downloads](https://img.shields.io/crates/d/rustsight)](https://crates.io/crates/rustsight)
 [![gitcgr](https://gitcgr.com/badge/omarnahdi/Dataset-Analyzer.svg)](https://gitcgr.com/omarnahdi/Dataset-Analyzer)
